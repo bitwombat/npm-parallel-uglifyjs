@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var qt = require('./uglify_js_parallel.js');
+/*
+qt('test', function(err) {
+    if (err) {
+        console.log('Errors:', err);
+        process.exit(1); //error exit code
+    } else {
+        console.log('Finished.');   
+        process.exit(0); //success exit code
+    }
+});
+*/
