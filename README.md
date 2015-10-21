@@ -18,6 +18,7 @@ Based heavily on [https://github.com/digitaledgeit/npm-recursive-uglifyjs](recur
 ## Developers
 ### To set up a set of test files:
 (a dumb, time-consuming way of doing it, but it should be a once-off)
+
     $ svn export /www/uf/uf_checkout/trunk/resource/content/big_test big_test
     $ find big_test \! -name '*.js' -a \! -name '*.css' -type f -exec rm {} \;
     $ cp -prv big_test big_test.virgin
