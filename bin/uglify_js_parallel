@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var numCPUs = require('os').cpus().length;
+var numCPUs = 4; //require('os').cpus().length;
 
 var finder = require('finder-on-steroids');
 var child = require('child_process');
@@ -32,7 +32,7 @@ function worker(i) {
 
 		// get the file source code
 		console.log("   Worker: reading " + fname);
-		child.exec('./uglify_js_single ' + fname, function (error, stdout, stderr) {
+		child.exec('bin/uglify_js_single ' + fname, function (error, stdout, stderr) {
 			console.log('   Worker stdout: ' + stdout);
 			if (stderr !== null && stderr !== '' ) {
 				console.log('   Worker stderr: ' + stderr);
