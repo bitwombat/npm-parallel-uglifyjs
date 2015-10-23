@@ -1,9 +1,13 @@
 {
   "name": "parallel-uglifyjs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "dependencies": {
     "finder-on-steroids": "^0.3.1",
     "uglify-js": "~2.4.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitwombat/parallel-uglifyjs"
   },
   "bugs": {
     "url": "https://github.com/bitwombat/parallel-uglifyjs/issues"
