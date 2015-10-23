@@ -1,6 +1,6 @@
 {
   "name": "parallel-uglifyjs",
-  "version": "0.0.4",
+  "version": "1.0.1",
   "dependencies": {
     "finder-on-steroids": "^0.3.1",
     "uglify-js": "~2.4.15"

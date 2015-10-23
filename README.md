@@ -7,6 +7,9 @@ Easily modifiable to run any job in parallel (see worker.js).
 
 Probably would be more accurate to call it "multicore-uglifyjs".
 
+On my machine a large test takes 2.5 hours on a single CPU, and 20 minutes with
+parallel-uglifyjs.
+
 ## Installation
 
     $ npm install -g parallel_uglifyjs
@@ -23,7 +26,7 @@ Probably would be more accurate to call it "multicore-uglifyjs".
     $ cp -prv big_test big_test.virgin
 
 ## Help
-I'm pretty sure the packaging for node is wrong (I should have a bin and lib
+I'm pretty sure the npm packaging is wrong (I should have a bin and lib
 dir at least).  Please raise an issue, or fork and issue a pull request.
 
 Also on an Ubuntu 14.04 LTS machine (kernel version 3.13), the workers seem to
