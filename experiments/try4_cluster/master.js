@@ -9,7 +9,9 @@ console.log("Finding files");
 finder(process.argv[2]).files().name('*.js').find(launch);
 
 function launch(err, files) {
-	console.log(err);
+    if ( err != null ) {
+	    console.log(err);
+    }
 
     // Fork all workers
     var workers = []
@@ -18,13 +20,15 @@ function launch(err, files) {
         worker = cp.fork(__dirname + '/worker.js', [i]);
         worker.on( 'message', make_message_processor(i) );
         worker.on('error', function(err) {
-            console.log( 'Worker: Something bad happened: ' + err );
+            console.error( 'Worker: Something bad happened: ' + err );
         });
 
         workers.push( worker );
     }
 
-    // Hand out jobs
+
+    // Give out jobs
+
     var job = 0;
 
     function next(worker_id) {
