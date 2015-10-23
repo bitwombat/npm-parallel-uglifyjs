@@ -5,6 +5,11 @@ var finder = require( 'finder-on-steroids' );
 
 var numCPUs = require( 'os' ).cpus().length;
 
+if (process.argv.length != 3) {
+	console.error('Please enter a (single) directory of scripts to uglify.');
+	process.exit(1);
+}
+
 console.log( 'Finding files' );
 finder(process.argv[2]).files().name( '*.js' ).find(launch);
 
@@ -56,7 +61,7 @@ function launch(err, files) {
             //console.log('master: got message:', msg.message);
             switch ( msg.message ) {
                 case 'give_me_another':
-                    console.log( 'master: ' + local_id + ' has asked for another job.' );
+                    console.log( 'master: ' + local_id + ' has asked for a job.' );
                     next( local_id );
                     break;
                 case 'error':
