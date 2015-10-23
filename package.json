@@ -1,11 +1,17 @@
 {
   "name": "parallel-uglifyjs",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "dependencies": {
     "finder-on-steroids": "^0.3.1",
     "uglify-js": "~2.4.15"
   },
   "bugs": {
     "url": "https://github.com/bitwombat/parallel-uglifyjs/issues"
-  }
+  },
+  "keywords": [
+    "multicore",
+    "parallel",
+    "fork",
+    "uglifyjs"
+  ]
 }
