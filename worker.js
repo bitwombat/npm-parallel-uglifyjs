@@ -24,6 +24,6 @@ process.on( 'message', function( msg ) {
 });
 
 process.on( 'exit', function( err ) {
-    console.log( 'worker' + id + ': I am Exiting' );
+    console.log( 'worker' + id + ': I am exiting' );
 });
 

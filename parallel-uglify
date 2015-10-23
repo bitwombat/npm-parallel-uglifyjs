@@ -42,7 +42,7 @@ function launch(err, files) {
             console.log( 'master: Sending job ' + job + ' to worker ' + worker_id );
             worker_process.send({ cmd: 'go', name: files[job] });
         } else {
-            console.log( 'master: we are all done.  Kill ' + worker_id );
+            console.log( 'master: We are all done.  Disconnecting ' + worker_id + '.');
             worker_process.disconnect();
         }
     }
