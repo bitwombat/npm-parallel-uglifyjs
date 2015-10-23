@@ -15,14 +15,6 @@ minutes with parallel-uglifyjs.
 ## Usage
     $ ./parallel_uglifyjs small_test
 
-## Developers
-### To set up a set of test files:
-(a dumb, time-consuming way of doing it, but it should be a once-off)
-
-    $ svn export /www/uf/uf_checkout/trunk/resource/content/big_test big_test
-    $ find big_test \! -name '*.js' -a \! -name '*.css' -type f -exec rm {} \;
-    $ cp -prv big_test big_test.virgin
-
 ## Help
 I'm pretty sure the npm packaging is wrong (I should have a bin and lib
 dir at least).  Please raise an issue, or fork and issue a pull request if you
