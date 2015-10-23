@@ -3,17 +3,16 @@
 Hunts for js files in a directory tree, and runs uglify-js on them in parallel
 (one per CPU).
 
-Based heavily on [https://github.com/digitaledgeit/npm-recursive-uglifyjs](recursive-uglifyjs)
+Easily modifiable to run any job in parallel (see worker.js).
+
+Probably would be more accurate to call it "multicore-uglifyjs".
 
 ## Installation
 
-    $ npm install -g recursive-uglifyjs
+    $ npm install -g parallel_uglifyjs
 
 ## Usage
-    $ ./uglify_js_parallel small_test
-
-### Run single instance (for testing)
-    $ ./uglify_js_single big_test/titles/advent-and-christmas/03/04/activity/02/story_content/frame.js
+    $ ./parallel_uglifyjs small_test
 
 ## Developers
 ### To set up a set of test files:
@@ -23,3 +22,10 @@ Based heavily on [https://github.com/digitaledgeit/npm-recursive-uglifyjs](recur
     $ find big_test \! -name '*.js' -a \! -name '*.css' -type f -exec rm {} \;
     $ cp -prv big_test big_test.virgin
 
+## Help
+I'm pretty sure the packaging for node is wrong (I should have a bin and lib
+dir at least).  Please raise an issue, or fork and issue a pull request.
+
+Also on an Ubuntu 14.04 LTS machine (kernel version 3.13), the workers seem to
+get 20 jobs at a time.  I'm not sure why this is.  Does the kernel limit the
+number of open file handles?
