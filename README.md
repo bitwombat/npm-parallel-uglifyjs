@@ -10,7 +10,7 @@ minutes with parallel-uglifyjs.
 
 ## Installation
 
-    $ npm install parallel_uglifyjs
+    $ npm install parallel-uglifyjs
 
 ## Usage
     $ ./parallel_uglifyjs small_test
