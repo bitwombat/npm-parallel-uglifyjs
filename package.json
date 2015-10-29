@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/bitwombat/parallel-uglifyjs"
   },
+  "bin": {
+    "parallel-uglifyjs": "./cli/parallel-uglifyjs.js"
+  },
   "bugs": {
     "url": "https://github.com/bitwombat/parallel-uglifyjs/issues"
   },
