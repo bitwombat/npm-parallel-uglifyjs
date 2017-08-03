@@ -14,11 +14,3 @@ On an 8-core machine a large test takes 2.5 hours utilising a single CPU, and
 
 ## Usage
     $ ./parallel_uglifyjs small_test
-
-## Help
-I'm pretty sure the npm packaging is wrong. Please raise an issue, or fork and
-issue a pull request if you can critique.
-
-Also on an Ubuntu 14.04 LTS machine (kernel version 3.13), the workers seem to
-get sent 10 or so jobs in a burst by master.js.  I'm not sure why this is.  Does
-the kernel limit the number of open file handles per process to something small?
