@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 var cp = require( 'child_process' );
 var finder = require( 'finder-on-steroids' );
