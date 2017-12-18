@@ -23,7 +23,7 @@ function launch(err, files) {
 
     for ( i = 0; i < numCPUs; i++ ) {
 
-        worker = cp.fork( __dirname + '/worker.js', [i] );
+        worker = cp.fork( __dirname + '/../worker.js', [i] );
 
         worker.on( 'message', make_message_processor(i) );
 
