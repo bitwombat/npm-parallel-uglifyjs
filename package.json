@@ -2,7 +2,7 @@
   "name": "parallel-uglifyjs",
   "description": "Recursively trawls a directory for .js files to uglify, running one node instance per available CPU.",
   "license": "GPL-3.0",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "author": "Greg Bell <parallel-uglifyjs@bitwombat.com.au>",
   "dependencies": {
     "finder-on-steroids": "~0.4",

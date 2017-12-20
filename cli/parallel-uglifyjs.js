@@ -2,9 +2,8 @@
 
 var cp = require( 'child_process' );
 var finder = require( 'finder-on-steroids' );
-
+const readline = require('readline');
 var numCPUs = require( 'os' ).cpus().length;
-
 var util = require( 'util' );
 
 if (process.argv.length != 3) {
@@ -42,12 +41,21 @@ function launch(err, files) {
 
     var job = 0;
 
+    /* Show status every 1 second, both because it cleans up the display as the
+     * workers initialise, and because it's unnecessary to print out every file
+     * processed
+     */
+    setInterval(function() {
+        percentage = Math.trunc(100 * job/(files.length-1));
+        readline.clearLine(process.stdout, 0);
+        process.stdout.write('\r');
+        process.stdout.write(util.format("%d of %d [%d%%]: %s", job, files.length-1, percentage, files[job]));
+    }, 1000);
+
     function next( worker_id ) {
         job++;
         worker_process = workers[ worker_id] ;
         if ( job < files.length ) {
-            percentage = Math.trunc(100 * job/(files.length-1));
-            process.stdout.write(util.format("%d of %d [%d%%]: %s\r", job, files.length-1, percentage, files[job]));
             worker_process.send({ cmd: 'go', name: files[job] });
         } else {
             console.log( 'master: We are all done.  Disconnecting ' + worker_id + '.');
