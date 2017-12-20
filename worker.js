@@ -14,9 +14,7 @@ process.send({ message: 'give_me_another' });
 
 process.on( 'message', function( msg ) {
     if ( 'go' == msg.cmd ) {
-        console.log( 'worker' + id + ': processing ' + msg.name );
         job( msg.name, function () {
-            console.log( 'worker' + id + ': Done ' );
             process.send({ message: 'give_me_another' });
         });
     } else

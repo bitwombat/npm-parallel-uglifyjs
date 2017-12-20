@@ -5,6 +5,8 @@ var finder = require( 'finder-on-steroids' );
 
 var numCPUs = require( 'os' ).cpus().length;
 
+var util = require( 'util' );
+
 if (process.argv.length != 3) {
 	console.error('Please enter a (single) directory of scripts to uglify.');
 	process.exit(1);
@@ -44,7 +46,8 @@ function launch(err, files) {
         job++;
         worker_process = workers[ worker_id] ;
         if ( job < files.length ) {
-            console.log( 'master: Sending job ' + job + ' to worker ' + worker_id );
+            percentage = Math.trunc(100 * job/(files.length-1));
+            process.stdout.write(util.format("%d of %d [%d%%]: %s\r", job, files.length-1, percentage, files[job]));
             worker_process.send({ cmd: 'go', name: files[job] });
         } else {
             console.log( 'master: We are all done.  Disconnecting ' + worker_id + '.');
@@ -61,7 +64,6 @@ function launch(err, files) {
             //console.log('master: got message:', msg.message);
             switch ( msg.message ) {
                 case 'give_me_another':
-                    console.log( 'master: ' + local_id + ' has asked for a job.' );
                     next( local_id );
                     break;
                 case 'error':
