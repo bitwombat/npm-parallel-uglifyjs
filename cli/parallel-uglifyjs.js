@@ -45,7 +45,7 @@ function launch(err, files) {
      * workers initialise, and because it's unnecessary to print out every file
      * processed
      */
-    setInterval(function() {
+    var statusDisplayId = setInterval(function() {
         percentage = Math.trunc(100 * job/(files.length-1));
         readline.clearLine(process.stdout, 0);
         process.stdout.write('\r');
@@ -60,6 +60,7 @@ function launch(err, files) {
         } else {
             console.log( 'master: We are all done.  Disconnecting ' + worker_id + '.');
             worker_process.disconnect();
+            clearInterval(statusDisplayId);
         }
     }
 
