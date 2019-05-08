@@ -6,7 +6,9 @@ var id = process.argv[2];
 
 const DEBUG = false;
 
-console.log( 'worker' + id + ' started' );
+if ( DEBUG ) {
+    console.log( 'worker' + id + ' started' );
+}
 
 // Get things started
 process.send({ message: 'give_me_another' });
