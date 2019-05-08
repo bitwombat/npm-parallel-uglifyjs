@@ -14,7 +14,7 @@ if (process.argv.length != 3) {
     process.exit(1);
 }
 
-console.log( 'Finding files' );
+console.log( 'Finding all JS files' );
 finder(process.argv[2]).files().name( '*.js' ).find(launch);
 
 function launch(err, files) {
