@@ -6,6 +6,7 @@
   "author": "Greg Bell <parallel-uglifyjs@bitwombat.com.au>",
   "dependencies": {
     "finder-on-steroids": "~0.4",
+    "progress": "^2.0.3",
     "uglify-js": "~2.6"
   },
   "repository": {

@@ -4,6 +4,8 @@ var job = require( './uglify-single.js' ).uglify;
 
 var id = process.argv[2];
 
+const DEBUG = false;
+
 console.log( 'worker' + id + ' started' );
 
 // Get things started
@@ -22,6 +24,8 @@ process.on( 'message', function( msg ) {
 });
 
 process.on( 'exit', function( err ) {
-    console.log( 'worker' + id + ': I am exiting' );
+    if ( DEBUG ) {
+        console.log( 'worker' + id + ': I am exiting' );
+    }
 });
 
